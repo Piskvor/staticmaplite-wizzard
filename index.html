@@ -6,7 +6,7 @@
 	<title>simpleMapWizzard</title>
 
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-    <link rel="stylesheet" href="js/openlayers/theme/default/style.css" type="text/css" />
+    <link rel="stylesheet" href="http://openlayers.org/api/theme/default/style.css" type="text/css" />
 
 	<script src="http://www.openlayers.org/api/OpenLayers.js" type="text/javascript"></script>
 	<script src="http://openstreetmap.org/openlayers/OpenStreetMap.js" type="text/javascript"></script>
@@ -23,7 +23,7 @@
 			map = new OpenLayers.Map('map', {
 				controls: [
 					new OpenLayers.Control.Attribution(),
-					new OpenLayers.Control.MouseDefaults(),
+					new OpenLayers.Control.Navigation(),
 					new OpenLayers.Control.PanZoomBar()]
 			});           
 			markers = new OpenLayers.Layer.Vector(
@@ -31,7 +31,7 @@
 				{
 					styleMap: new OpenLayers.StyleMap({
 						externalGraphic: "js/openlayers/img/marker-gold.png",
-						backgroundGraphic: "../images/marker_shadow.png",
+						backgroundGraphic: "images/marker_shadow.png",
 						backgroundXOffset: 0,
 						backgroundYOffset: -7,
 						graphicZIndex: 10,
@@ -48,9 +48,6 @@
 			});
 
 			map.addLayer(mapnik);
-			
-			osma = new OpenLayers.Layer.OSM.Osmarender("Osmarender");
-			map.addLayer(osma);
 			
 			cylce = new OpenLayers.Layer.OSM.CycleMap("OpenCycleMap");
 			map.addLayer(cylce);
@@ -127,7 +124,7 @@
 				graphicHeight:parseInt(height),
 				graphicXOffset:parseInt(offsetx),
 				graphicYOffset:parseInt(offsety),
-				backgroundGraphic: (id.substr(0,5)=='light'?'':"../images/marker_shadow.png"),
+				backgroundGraphic: (id.substr(0,5)=='light'?'':"./images/marker_shadow.png"),
 				backgroundXOffset:0,
 				backgroundYOffset:parseInt(offsety)-2,
 				graphicZIndex: 11,
@@ -224,20 +221,20 @@
 				<h3>makers</h3>
 				<input style="margin-left:0;" type="button" onclick="markers.removeFeatures(markers.features); makeStaticCodeSnip();" value="clear all markers" />
 				<h4 style="margin:0">click or drag to add</h4>
-				<img style="margin-left:0;" class="draggable" src="../images/markers/lightblue1.png" onclick="mark(this);" rel="lightblue1|17|19|-2|-20" />
-				<img class="draggable" src="../images/markers/lightblue2.png" onclick="mark(this);" rel="lightblue2|17|19|0|-19" />
-				<img class="draggable" src="../images/markers/lightblue3.png" onclick="mark(this);" rel="lightblue3|17|19|0|-19" />
-				<img class="draggable" src="../images/markers/lightblue4.png" onclick="mark(this);" rel="lightblue4|17|19|0|-19" />
+				<img style="margin-left:0;" class="draggable" src="./images/markers/lightblue1.png" onclick="mark(this);" rel="lightblue1|17|19|-2|-20" />
+				<img class="draggable" src="./images/markers/lightblue2.png" onclick="mark(this);" rel="lightblue2|17|19|0|-19" />
+				<img class="draggable" src="./images/markers/lightblue3.png" onclick="mark(this);" rel="lightblue3|17|19|0|-19" />
+				<img class="draggable" src="./images/markers/lightblue4.png" onclick="mark(this);" rel="lightblue4|17|19|0|-19" />
 				<br />
-				<img class="draggable" style="margin-left:0;" src="../images/markers/ol-marker.png" onclick="mark(this);" rel="ol-marker|21|25|-10|-25" />
-				<img class="draggable" src="../images/markers/ol-marker-gold.png" onclick="mark(this);" rel="ol-marker-gold|21|25|-10|-25" />
-				<img class="draggable" src="../images/markers/ol-marker-blue.png" onclick="mark(this);" rel="ol-marker-blue|21|25|-10|-25" />
-				<img class="draggable" src="../images/markers/ol-marker-green.png" onclick="mark(this);" rel="ol-marker-green|21|25|-10|-25" />
+				<img class="draggable" style="margin-left:0;" src="./images/markers/ol-marker.png" onclick="mark(this);" rel="ol-marker|21|25|-10|-25" />
+				<img class="draggable" src="./images/markers/ol-marker-gold.png" onclick="mark(this);" rel="ol-marker-gold|21|25|-10|-25" />
+				<img class="draggable" src="./images/markers/ol-marker-blue.png" onclick="mark(this);" rel="ol-marker-blue|21|25|-10|-25" />
+				<img class="draggable" src="./images/markers/ol-marker-green.png" onclick="mark(this);" rel="ol-marker-green|21|25|-10|-25" />
 				<br />
-				<img class="draggable" style="margin-left:0;" src="../images/markers/ltblu-pushpin.png" onclick="mark(this);" rel="ltblu-pushpin|32|32|-11|-33" />
-				<img class="draggable" src="../images/markers/pink-pushpin.png" onclick="mark(this);" rel="pink-pushpin|32|32|-11|-33" />
-				<img class="draggable" src="../images/markers/red-pushpin.png" onclick="mark(this);" rel="red-pushpin|32|32|-11|-33" />
-				<img class="draggable" src="../images/markers/ylw-pushpin.png" onclick="mark(this);" rel="ylw-pushpin|32|32|-11|-33" />
+				<img class="draggable" style="margin-left:0;" src="./images/markers/ltblu-pushpin.png" onclick="mark(this);" rel="ltblu-pushpin|32|32|-11|-33" />
+				<img class="draggable" src="./images/markers/pink-pushpin.png" onclick="mark(this);" rel="pink-pushpin|32|32|-11|-33" />
+				<img class="draggable" src="./images/markers/red-pushpin.png" onclick="mark(this);" rel="red-pushpin|32|32|-11|-33" />
+				<img class="draggable" src="./images/markers/ylw-pushpin.png" onclick="mark(this);" rel="ylw-pushpin|32|32|-11|-33" />
 	<!--			<h3>address</h3>
 				<input type="text" value="Mountain View, CA" /><input type="button" onclick="lookup(this.value);" value="look up" />
 	-->			<h3>map size</h3>
